@@ -1,0 +1,95 @@
+🔥 What This Code Is
+This is a self‑evolving autonomous engine — a living system that continuously:
+
+Generates new “ideas” (technical constructs)
+
+Mutates them
+
+Evaluates them with multiple simulators
+
+Scores them on novelty, utility, impact, curiosity
+
+Builds full Python project files (1000+ lines each)
+
+Stores them intelligently
+
+Visualizes everything in a live GUI
+
+Integrates with an LLM backend
+
+Simulates a mesh of interconnected nodes
+
+Adapts its strategy over time
+
+It’s basically a self‑improving R&D organism.
+
+🧠 What It Does For You
+This system acts like your autonomous engineering lab.
+
+1. Generates endless new concepts
+It invents new “projects” using domain/mechanism/architecture/intents.
+
+2. Evolves them automatically
+It mutates ideas, evaluates them, selects the best, and repeats forever.
+
+3. Scores everything
+Every idea gets:
+
+Novelty
+
+Utility
+
+Impact
+
+Curiosity
+
+4. Builds real code
+For high‑scoring ideas, it generates:
+
+A full Python scaffold
+
+1000+ lines
+
+Simulators
+
+CLI
+
+Config
+
+Logging
+
+5. Gives you a live dashboard
+You see:
+
+Active projects
+
+Finished projects
+
+Metrics
+
+Mesh graph
+
+LLM status
+
+6. Uses an LLM as a co‑pilot
+The engine can:
+
+Ask the LLM to generate projects
+
+Ask for status
+
+Mutate ideas
+
+Adapt prompts based on system state
+
+7. Simulates a distributed mesh
+Every project becomes a “node” in a fake distributed network.
+
+8. Adapts its strategy
+It mutates scoring weights based on performance.
+
+9. Manages storage
+It automatically switches directories when your drive fills up.
+
+10. Self‑throttles
+It avoids overloading your CPU.
