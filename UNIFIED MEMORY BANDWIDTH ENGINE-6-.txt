@@ -1,0 +1,211 @@
+🚀 HybridBrain Unified Memory Daemon v6 — Deep Technical Summary
+Core identity:  
+This is a pure backend organism designed for maximum performance, autonomous workload orchestration, and tiered memory intelligence. The header states:
+
+“Universal workload orchestration (Files + Network + Sensors)”
+“Tier migration intelligence + residency tracking”
+
+This daemon is effectively a self‑optimizing memory governor with swarm‑distributed storage, bandwidth tuning, and a multi‑subsystem brain loop.
+
+🧠 1. System Architecture Overview
+Major subsystems
+OS Layer  
+Collects rolling CPU/RAM/disk stats, pressure metrics, and latency windows.
+
+Swarm Memory Nodes  
+Local server + client for distributed memory offloading.
+
+Bandwidth Auto‑Tuner (PID‑driven)  
+Dynamically adjusts RAM cache % based on pressure + workload type.
+
+Unified Memory Engine  
+RAM + disk‑mmap + swarm tiers with migration, residency tracking, and bandwidth accounting.
+
+Workload Manager  
+Simulated real workloads: file scanning, network ingestion, sensor streams.
+
+Brain Loop  
+Global optimization loop (not shown in truncated portion but referenced).
+
+⚙️ 2. OS Layer — Rolling Pressure Model
+The OS layer tracks:
+
+CPU load (with history)
+
+RAM free ratio
+
+Disk latency
+
+Pressure metrics:
+
+ram_pressure = 1 - free_ratio
+
+disk_pressure = latency / 20
+
+cpu_pressure = cpu / 100
+
+This feeds directly into tier decisions and tuner behavior.
+
+🌐 3. Swarm Memory Nodes
+SwarmNodeServer
+Simple TCP server storing key/value binary blobs.
+
+Commands: PUT, GET, PING.
+
+SwarmNodeClient
+Tracks latency + error penalties.
+
+Computes a swarm health score.
+
+Used as the third-tier memory backend.
+
+📡 4. Bandwidth Auto‑Tuner (PID + Heuristics)
+This is one of the most advanced parts.
+
+Inputs
+CPU load
+
+RAM free ratio
+
+Disk latency
+
+Workload type (file / network / sensor / mixed)
+
+Real bandwidth (RAM / disk / swarm)
+
+Outputs
+target_cache_percent (5%–80%)
+
+Behavior
+PID loop tries to maintain 35% free RAM.
+
+Penalizes high CPU or disk latency.
+
+Boosts cache for file workloads, reduces for network workloads.
+
+Adjusts based on which tier is fastest.
+
+This tuner continuously calls back into the engine to resize RAM cache.
+
+🧬 5. Unified Memory Engine — Tiered Memory Brain
+This is the heart of the daemon.
+
+Memory tiers
+RAM cache (dynamic size)
+
+Disk mmap file (hb_extended_memory.bin, 1 GB)
+
+Swarm node (remote)
+
+Key features
+Tier selection based on:
+
+priority (sensor > network > file)
+
+RAM/disk pressure
+
+cost model (RAM cheapest, swarm most expensive)
+
+Residency map:
+
+tier
+
+first_seen
+
+last_access
+
+priority
+
+fingerprint (entropy + size)
+
+Tier migration rules
+Idle > 60s → RAM → Disk
+
+Idle > 300s → RAM/Disk → Swarm
+
+Idle > 900s (file priority) → eviction
+
+Bandwidth accounting
+Every 5 seconds:
+
+RAM BW
+
+Disk BW
+
+Swarm BW
+are computed and fed into the tuner.
+
+Prefetch subsystem
+Every write enqueues a prefetch warmup.
+
+Boost subsystem
+Runs every 0.5s:
+
+Tier migration pass
+
+Bandwidth pipeline warmup
+
+📁 6. Workload Manager — Realistic Stress Simulation
+Three workload types run in parallel:
+
+File workload
+Scans hb_workload/
+
+Reads files in chunks
+
+Writes to engine as file:<name>:<chunk>
+
+Reads back immediately
+
+Intensity = bytes processed / 50MB
+
+Network workload
+Connects to 127.0.0.1:55666
+
+Receives chunks
+
+Writes + reads via engine
+
+Sensor workload
+3 simulated sensor streams
+
+High‑priority, small chunks
+
+Brain loop
+Not shown in truncated portion, but referenced as global optimizer.
+
+❤️ 7. Health & Heartbeat
+Engine tracks:
+
+Heartbeat (must be < 3× interval)
+
+Health score:
+
+CPU > 90% → penalty
+
+RAM free < 15% → penalty
+
+Disk latency > 10ms → penalty
+
+🧨 8. Overall Behavior Summary
+HybridBrain Daemon v6 is a self‑tuning, multi‑tier memory engine with:
+
+Autonomous cache resizing
+
+Pressure‑aware tier selection
+
+Swarm offloading
+
+Rolling telemetry
+
+Workload‑adaptive chunking
+
+Prefetching
+
+Migration + eviction
+
+Bandwidth intelligence
+
+Multi‑subsystem fault‑tolerant loops
+
+It behaves like a miniature OS memory governor combined with a distributed cache system and a PID‑driven adaptive optimizer.
